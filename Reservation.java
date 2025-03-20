@@ -15,7 +15,7 @@ import java.time.LocalTime;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long reservationId;
 
     @Column(name="date")
     private LocalDateTime Date;
@@ -36,16 +36,16 @@ public class Reservation {
     public ReservationDTO viewAsReservationDTO() {return new ReservationDTO(id,Date,Duration);}
     public Reservation() {}
 
-    public Reservation(long id,LocalDateTime Date,LocalTime Duration,Students students,Places places) {
-        this.id = id;
+    public Reservation(long reservationId,LocalDateTime Date,LocalTime Duration,Students students,Places places) {
+        this.reservationId = reservationId;
         this.Date = Date;
         this.Duration = Duration;
         this.students = students;
         this.places = places;
     }
-    public Long getId() {return id;}
+    public Long getId() {return reservationId;}
 
-    public void setId(Long id) {this.id = id;}
+    public void setId(Long reservationId) {this.reservationId = reservationId;}
 
     public LocalDateTime getDate() {return Date;}
 
@@ -65,11 +65,11 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation{"+ "id=" + id +
+        return "Reservation{"+ "Id=" + reservationId +
                 ",Date=" + Date +
                 ",Duration=" + Duration +
-                ",student=" + students +
-                ",place=" + places +
+                ",Student=" + students +
+                ",Place=" + places +
                 '}';
     }
 
