@@ -4,28 +4,28 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class ReservationDTO {
-    private long id;
+    private long reservationId;
     private LocalDateTime Date;
     private LocalTime Duration;
     private StudentsDTO studentsDTO;
     private PlacesDTO placesDTO;
 
-    public ReservationDTO(long id, LocalDateTime Date, LocalTime Duration) {
-        this.id = id;
+    public ReservationDTO(long reservationId, LocalDateTime Date, LocalTime Duration) {
+        this.reservationId = reservationId;
         this.Date = Date;
         this.Duration = Duration;
 
     }
-    public ReservationDTO(long id, LocalDateTime Date, LocalTime Duration, StudentsDTO studentsDTO,PlacesDTO placesDTO) {
-        this.id = id;
+    public ReservationDTO(long reservationId, LocalDateTime Date, LocalTime Duration, StudentsDTO studentsDTO,PlacesDTO placesDTO) {
+        this.reservationId = reservationId;
         this.Date = Date;
         this.Duration = Duration;
         this.studentsDTO = studentsDTO;
         this.placesDTO = placesDTO;
     }
 
-    public long getId() {return id;}
-    public void setId(long id) {this.id = id;}
+    public long getId() {return reservationId;}
+    public void setId(long reservationId) {this.reservationId = reservationId;}
     public LocalDateTime getDate() {return Date;}
     public void setDate(LocalDateTime Date) {this.Date = Date;}
     public LocalTime getDuration() {return Duration;}
