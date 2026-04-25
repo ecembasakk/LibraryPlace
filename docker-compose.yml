@@ -1,8 +1,22 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: LibraryPlace
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Ecem274.
+    restart: always
+
   backend:
     image: ecembasakk/libraryplace-backend:latest
     ports:
       - "80:8080"
     restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/LibraryPlace
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Ecem274.
