@@ -36,14 +36,14 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/libraryplace-backend:latest
 
       - name: Transfer Files to EC2 via SFTP (Task 5)
-        uses: wangyucode/sftp-upload-action@v2.0.2
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          privateKey: ${{ secrets.EC2_SSH_KEY }}
-          localDir: "./"
-          remoteDir: "/home/ubuntu/"
-          include: "deploy.sh,docker-compose.yml"
+        run: |
+            echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ec2_key.pem
+            chmod 600 /tmp/ec2_key.pem
+            sftp -i /tmp/ec2_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} <<EOF
+            put deploy.sh /home/ubuntu/deploy.sh
+            put docker-compose.yml /home/ubuntu/docker-compose.yml
+            EOF
+            rm /tmp/ec2_key.pem
 
       - name: Run Deploy Script on EC2 via SSH (Task 5)
         uses: appleboy/ssh-action@master
