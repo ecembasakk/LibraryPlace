@@ -34,14 +34,14 @@ public class StudentsController {
 
 
 
-//    @GetMapping("/get/{id}")
-//    public ResponseEntity<Students> getStudentById(@PathVariable("id") Long id) {
-//        Optional<Students> students=studentsRepository.findById(id);
-//        if(students.isPresent()){
-//            return new ResponseEntity<>(students.get(), HttpStatus.OK);
-//        }
-//        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Students> getStudentById(@PathVariable("id") Long id) {
+        Optional<Students> students=studentsRepository.findById(id);
+        if(students.isPresent()){
+            return new ResponseEntity<>(students.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 
     @PostMapping("/add")
