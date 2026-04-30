@@ -50,17 +50,17 @@ public class StudentsController {
     }
 
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Students> updateStudents(@PathVariable("id") Long id, @RequestBody Students students){
-        Optional<Students> studentsOptional=studentsRepository.findById(id);
-        if(studentsOptional.isPresent()){
-            students.setId(id);
-            return new ResponseEntity<>(studentsRepository.save(students),HttpStatus.OK);
-        }
-        else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
- }
+//    @PutMapping("/update/{id}")
+//    public ResponseEntity<Students> updateStudents(@PathVariable("id") Long id, @RequestBody Students students){
+//        Optional<Students> studentsOptional=studentsRepository.findById(id);
+//        if(studentsOptional.isPresent()){
+//            students.setId(id);
+//            return new ResponseEntity<>(studentsRepository.save(students),HttpStatus.OK);
+//        }
+//        else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+// }
 //
 //    @DeleteMapping("/delete/{id}")
 //    public ResponseEntity<Students> deleteStudent(@PathVariable("id") Long id){
