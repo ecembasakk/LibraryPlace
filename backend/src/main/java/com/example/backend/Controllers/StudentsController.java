@@ -62,16 +62,16 @@ public class StudentsController {
 //        }
 // }
 //
-//    @DeleteMapping("/delete/{id}")
-//    public ResponseEntity<Students> deleteStudent(@PathVariable("id") Long id){
-//        Optional<Students> Students = studentsRepository.findById(id);
-//        if(Students.isPresent()) {
-//            studentsRepository.delete(Students.get());
-//            return new ResponseEntity<>(Students.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Students> deleteStudent(@PathVariable("id") Long id){
+        Optional<Students> Students = studentsRepository.findById(id);
+        if(Students.isPresent()) {
+            studentsRepository.delete(Students.get());
+            return new ResponseEntity<>(Students.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 //
 //
 //
