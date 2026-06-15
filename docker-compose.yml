@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: LibraryPlace
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Ecem274.
+      POSTGRES_PASSWORD: ****
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
@@ -27,7 +27,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/LibraryPlace
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: Ecem274.
+      SPRING_DATASOURCE_PASSWORD: ****
 
 
 volumes:
